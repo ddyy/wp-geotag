@@ -18,14 +18,18 @@ function geotag_meta_boxes_setup() {
 }
 
 function geotag_add_post_meta_boxes() {
-	add_meta_box(
-	'wp_geotag',      // Unique ID
-	esc_html__( 'Geotag', 'example' ),    // Title
-	'geotag_post_class_meta_box',   // Callback function
-	'post',         // Admin page (or post type)
-	'side',         // Context
-	'default'         // Priority
-	);
+	$post_types = array('post','page');
+	foreach ($post_types as $post_type)
+	{
+		add_meta_box(
+		'wp_geotag',      // Unique ID
+		esc_html__( 'Geotag', 'example' ),    // Title
+		'geotag_post_class_meta_box',   // Callback function
+		$post_type,         // Admin page (or post type)
+		'side',         // Context
+		'default'         // Priority
+		);
+	}
 }
 
 function geotag_post_class_meta_box( $object, $box ) { ?>
