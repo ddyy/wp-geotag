@@ -12,6 +12,11 @@
 add_action( 'load-post.php', 'geotag_meta_boxes_setup' );
 add_action( 'load-post-new.php', 'geotag_meta_boxes_setup' );
 
+function wp_geotag_map() {
+	return '<div id="wp-geotag-map"></div>';
+}
+add_shortcode( 'wp_geotag_map', 'wp_geotag_map' );
+
 function geotag_meta_boxes_setup() {
 	add_action( 'add_meta_boxes', 'geotag_add_post_meta_boxes' );
 	add_action( 'save_post', 'save_geotag_info_meta', 10, 2);
