@@ -83,3 +83,29 @@ function save_geotag_info_meta( $post_id, $post ) {
   }
   
 }
+
+
+// create custom plugin settings menu
+add_action('admin_menu', 'wp_geotag_create_menu');
+
+function wp_geotag_create_menu() {
+
+	add_options_page('WP Geotag Plugin Settings', 'WP Geotag', 'administrator', __FILE__, 'wp_geotag_settings_page');
+
+	add_action( 'admin_init', 'register_mysettings' );
+}
+
+
+function register_mysettings() {
+}
+
+function wp_geotag_settings_page() {
+?>
+<div class="wrap">
+<h2>WP Geotag Settings</h2>
+
+<form method="post" action="options.php">
+
+</form>
+</div>
+<?php } ?>
