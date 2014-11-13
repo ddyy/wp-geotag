@@ -97,6 +97,7 @@ function wp_geotag_create_menu() {
 
 
 function register_mysettings() {
+	register_setting( 'wp-geotag-settings-group', 'wp_geotag_gmaps_api_key' );
 }
 
 function wp_geotag_settings_page() {
@@ -105,6 +106,16 @@ function wp_geotag_settings_page() {
 <h2>WP Geotag Settings</h2>
 
 <form method="post" action="options.php">
+ <?php settings_fields( 'wp-geotag-settings-group' ); ?>
+    <?php do_settings_sections( 'wp-geotag-settings-group' ); ?>
+    <table class="form-table">
+        <tr valign="top">
+        <th scope="row">Google Maps API Key</th>
+        <td><input type="text" name="wp_geotag_gmaps_api_key" value="<?php echo esc_attr( get_option('wp_geotag_gmaps_api_key') ); ?>" /></td>
+        </tr>
+    </table>
+    
+    <?php submit_button(); ?>
 
 </form>
 </div>
