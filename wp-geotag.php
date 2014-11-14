@@ -13,6 +13,7 @@ add_action( 'load-post.php', 'geotag_meta_boxes_setup' );
 add_action( 'load-post-new.php', 'geotag_meta_boxes_setup' );
 
 function wp_geotag_map() {
+	wp_enqueue_script( 'gmaps', "https://maps.googleapis.com/maps/api/js?key=".get_option( 'wp_geotag_gmaps_api_key' ));
 	return '<div id="wp-geotag-map"></div>';
 }
 add_shortcode( 'wp_geotag_map', 'wp_geotag_map' );
