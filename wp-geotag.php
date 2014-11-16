@@ -67,7 +67,7 @@ function save_geotag_info_meta( $post_id, $post ) {
 	  if ( !current_user_can( $post_type->cap->edit_post, $post_id ) )
 	    return $post_id;
 
-	  $new_meta_value = ( isset( $_POST[$field] ) ? sanitize_html_class( $_POST[$field] ) : '' );
+	  $new_meta_value = ( isset( $_POST[$field] ) ?  $_POST[$field] : '' );
 
 	  $meta_key = str_replace('-','_',$field);
 
