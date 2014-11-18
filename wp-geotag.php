@@ -19,7 +19,18 @@ function enqueue_maps()
 }
 
 function wp_geotag_map() {
-	return '<div id="wp-geotag-map"></div>';
+	return "<div style=\"height:300px\" id=\"wp-geotag-map\"></div>
+		<script type=\"text/javascript\">
+	function initialize() {
+	        var mapOptions = {
+	          center: { lat: ".get_post_meta( get_the_ID(), 'geotag_latitude', true ) .", lng: ".esc_attr( get_post_meta( get_the_ID(), 'geotag_longitude', true ) )."},
+	          zoom: 8
+	        };
+	        var map = new google.maps.Map(document.getElementById('wp-geotag-map'),
+	            mapOptions);
+	      }
+	      google.maps.event.addDomListener(window, 'load', initialize);
+	</script>";
 }
 add_shortcode( 'wp_geotag_map', 'wp_geotag_map' );
 
