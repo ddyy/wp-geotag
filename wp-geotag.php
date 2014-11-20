@@ -35,11 +35,19 @@ function wp_geotag_map() {
 			map: map,
 			title:\"".get_the_title()."\"
 			});
-		}
+			
+			var contentString = '';
+
+			var infowindow = new google.maps.InfoWindow({
+				content: contentString
+				});
+
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.open(map,marker);
+					});	
+				}
 		  
 		google.maps.event.addDomListener(window, 'load', initialize);
-		  
-		  
 		  
 		</script>";
 	}
