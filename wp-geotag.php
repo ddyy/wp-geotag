@@ -36,7 +36,7 @@ function wp_geotag_map() {
 			title:\"".get_the_title()."\"
 			});
 			
-			var contentString = '<h2>".get_the_title()."</h2>';
+			var contentString = '<a href=\"".get_permalink()."\">".get_the_title()."</a>';
 
 			var infowindow = new google.maps.InfoWindow({
 				content: contentString
