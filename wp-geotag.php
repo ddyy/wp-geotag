@@ -78,6 +78,8 @@ function geotag_post_class_meta_box( $object, $box ) { ?>
 	<?php wp_nonce_field( basename( __FILE__ ), 'geotag_post_class_nonce' ); ?>
 
 	<p>
+		<label for="geotag-search">Search for location coordinates</label><br />
+		<input type="text" id="geotag-search" /><input type="button" id="geotag-search-button" value="Search" /><br /><br />
 		<label for="geotag-latitude"><?php _e( "Latitude", 'example' ); ?></label>
 		<br />
 		<input class="widefat" type="text" name="geotag-latitude" id="geotag-latitude" value="<?php echo esc_attr( get_post_meta( $object->ID, 'geotag_latitude', true ) ); ?>" size="30" />
