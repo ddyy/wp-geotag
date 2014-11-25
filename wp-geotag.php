@@ -36,7 +36,7 @@ function wp_geotag_map() {
 			title:\"".get_the_title()."\"
 			});
 			
-			var contentString = '<a href=\"".get_permalink()."\">".get_the_title()."</a>';
+			var contentString = '<a href=\"".get_permalink()."\">".get_the_title()."</a><br /><a target=\"_blank\" href=\"https://www.google.com/maps/search/".get_post_meta( get_the_ID(), 'geotag_latitude', true ) .",".get_post_meta( get_the_ID(), 'geotag_longitude', true ) ."\">Open in Google Maps</a>';
 
 			var infowindow = new google.maps.InfoWindow({
 				content: contentString
