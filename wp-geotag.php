@@ -30,7 +30,8 @@ function wp_geotag_map() {
 		var myLatlng = new google.maps.LatLng(".get_post_meta( get_the_ID(), 'geotag_latitude', true ) .",".esc_attr( get_post_meta( get_the_ID(), 'geotag_longitude', true ) ).");
 		var mapOptions = {
 			center: myLatlng,
-			zoom: 8
+			zoom: 8,
+			scrollwheel: false
 		};
 		var map = new google.maps.Map(document.getElementById('wp-geotag-map'),
 		mapOptions);
