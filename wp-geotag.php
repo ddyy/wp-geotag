@@ -14,7 +14,7 @@ add_action( 'load-post-new.php', 'geotag_meta_boxes_setup' );
 add_action( 'wp_enqueue_scripts', 'enqueue_maps' );
 
 function geocoder_admin_enqueue($hook) {
-    wp_enqueue_script( 'geocoder_admin_js', plugin_dir_url( __FILE__ ) . 'geocoder_admin.js' );
+    wp_enqueue_script( 'geocoder_admin_js', plugin_dir_url() .'wp-geotag/geotag_admin.js' );
 }
 add_action( 'admin_enqueue_scripts', 'geocoder_admin_enqueue' );
 
