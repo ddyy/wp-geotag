@@ -2,7 +2,6 @@ jQuery(document).ready(function(){
 	geocoder = new google.maps.Geocoder();
 	
 		jQuery('#geotag-search-button').click(function(){
-			//alert(jQuery('#geotag-search').val());
 			geocode(jQuery('#geotag-search').val());
 		});
 });
