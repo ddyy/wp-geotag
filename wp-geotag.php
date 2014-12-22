@@ -95,6 +95,24 @@ function geotag_post_class_meta_box( $object, $box ) { ?>
 		<br />
 		<input class="widefat" type="text" name="geotag-longitude" id="geotag-longitude" value="<?php echo esc_attr( get_post_meta( $object->ID, 'geotag_longitude', true ) ); ?>" size="30" />
 	</p>
+	<div id="geotag-preview-map" style="height: 200px;"></div>
+	<script>
+	var geotag_latitude = <?php echo esc_attr( get_post_meta( $object->ID, 'geotag_latitude', true ) ); ?>;
+	var geotag_longitude = <?php echo esc_attr( get_post_meta( $object->ID, 'geotag_longitude', true ) ); ?>;
+	var myLatlng = new google.maps.LatLng(geotag_latitude, geotag_longitude);
+	var mapOptions = {
+	  zoom: 8,
+	  center: myLatlng
+	}
+	var map = new google.maps.Map(document.getElementById("geotag-preview-map"), mapOptions);
+
+	var marker = new google.maps.Marker({
+	    position: myLatlng
+	});
+
+	// To add the marker to the map, call setMap();
+	marker.setMap(map);
+	</script>
 	<?php }
 
 	function save_geotag_info_meta( $post_id, $post ) {
