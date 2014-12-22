@@ -94,7 +94,9 @@ function geotag_post_class_meta_box( $object, $box ) { ?>
 		<label for="geotag-longitude"><?php _e( "Longitude", 'example' ); ?></label>
 		<br />
 		<input class="widefat" type="text" name="geotag-longitude" id="geotag-longitude" value="<?php echo esc_attr( get_post_meta( $object->ID, 'geotag_longitude', true ) ); ?>" size="30" />
+		<br />
 	</p>
+	<label>Preview</label>
 	<div id="geotag-preview-map" style="height: 200px;"></div>
 	<script>
 	var geotag_latitude = <?php echo esc_attr( get_post_meta( $object->ID, 'geotag_latitude', true ) ); ?>;
@@ -110,8 +112,12 @@ function geotag_post_class_meta_box( $object, $box ) { ?>
 	    position: myLatlng
 	});
 
-	// To add the marker to the map, call setMap();
 	marker.setMap(map);
+	
+	function clearMap()
+	{
+		marker.setMap(null);
+	}
 	</script>
 	<?php }
 
